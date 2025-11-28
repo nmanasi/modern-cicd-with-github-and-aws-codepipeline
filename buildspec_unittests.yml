@@ -1,0 +1,18 @@
+version: 0.2 
+
+phases:
+  install:
+    commands:
+     - npm install
+  build:
+    commands:
+      - npx jest --ci --collectCoverage --reporters=jest-junit
+reports:
+  unittests:
+    files:
+      - junit.xml
+    file-format: JUNITXML
+  collectCoverage:
+    files:
+    - 'coverage/cobertura-coverage.xml'
+    file-format: 'COBERTURAXML'
